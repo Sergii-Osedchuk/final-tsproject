@@ -2,7 +2,7 @@ import { FC, ComponentPropsWithoutRef, ReactNode } from 'react';
 import { type LinkProps, Link } from 'react-router-dom';
 
 type BaseProps = {
-  textOnly: boolean,
+  textOnly?: boolean,
   children: ReactNode
 }
 
@@ -15,13 +15,22 @@ function isLinkProps(props: ButtonProps | LinkProp): props is LinkProp {
 
 
 const Button: FC<ButtonProps | LinkProp> = (props) => {
-  let name;
-  props.textOnly ?  name = 'button button--text-only': name = 'button';
   if (isLinkProps(props)) {
-    return <Link className={name} {...props}> {props.children} </Link>
+    const { children, textOnly, ...otherProps } = props;
+    return (
+      <Link className={`button ${textOnly ? "button--text-only" : ""}`} {...otherProps}>
+        {children}
+      </Link>
+    );
   }
+  const { children, textOnly, ...otherProps } = props;
   return (
-    <button className={name} {...props}>{props.children}</button>
+    <button
+      className={`button ${textOnly ? "button--text-only" : ""}`}
+      {...otherProps}
+    >
+      {children}
+    </button>
   );
 }
 

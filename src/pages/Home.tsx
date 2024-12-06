@@ -1,13 +1,10 @@
 import studentsImg from '../assets/students.jpg';
 import listImg from '../assets/list.jpg';
 import certificateImg from '../assets/certificate.jpg';
-import Button from '../UI/Button';
 
 export default function HomePage() {
   return (
     <main id="home-page">
-      <Button textOnly={true}>Hello</Button>
-      <Button textOnly={false} to='/sessions'>Hello Kitti</Button>
       <h2>Our Mission: Your Success</h2>
       <section>
         <img src={studentsImg} alt="A group of students" />
