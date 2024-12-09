@@ -6,16 +6,13 @@ import { useSessionsContext } from "../store/sessions-context.tsx";
 import Button from "../UI/Button.tsx";
 
 type UpcomingSessionsProps = {
-  onClose: () => void; // onClose is accepted to "tell" the parent component that the UpcomingSessions component should be removed from the DOM
+  onClose: () => void; 
 };
 
 export default function UpcomingSessions({ onClose }: UpcomingSessionsProps) {
   const modal = useRef<ModalHandle>(null);
   const sessionsCtx = useSessionsContext();
 
-  console.log(sessionsCtx);
-
-  // useEffect is used to open the Modal via its exposed `open` method when the component is mounted
   useEffect(() => {
     if (modal.current) {
       modal.current.open();
