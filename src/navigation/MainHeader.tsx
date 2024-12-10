@@ -23,17 +23,16 @@ const MainHeader = () => {
         <nav>
           <ul>
             <li>
-              <NavLink to='/' className = {(isActive) => isActive ? 'active' : '' } >Our mission</NavLink>
+              <NavLink to='/'>Our mission</NavLink>
             </li>
             <li>
-              <NavLink to='/sessions' className = {(isActive) => isActive ? 'active' : ''}>Browse Sessions</NavLink>
+              <NavLink to='/sessions'>Browse Sessions</NavLink>
             </li>
             <li>
               <Button onClick={showUpcomingSessions}>Upcoming Sessions</Button>
             </li>
           </ul>
         </nav>
-
       </header>
     </>
   );
